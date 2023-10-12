@@ -5,7 +5,7 @@ WITH temp_daily AS (
 add_weekday AS (
     SELECT *,
         o_char(timestamp, 'Day') AS weekday,
-        weekday AS day_num
+        -- o_char(timestamp, weekday) AS day_num
     FROM temp_daily
 )
 SELECT *
