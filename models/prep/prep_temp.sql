@@ -4,8 +4,8 @@ WITH temperature_daily AS (
 ),
 add_weekday AS (
     SELECT *,
-        o_char(date, 'Day') AS weekday
-        -- o_char(date, weekday) AS day_num
+        date_part('day', date) AS weekday
+        date_part('weekday', date) AS day_num
     FROM temperature_daily
 )
 SELECT *
