@@ -9,6 +9,6 @@ WITH temperature_daily AS (
         ((extracted_data -> 'location' -> 'lat')::VARCHAR)::NUMERIC  AS lat, 
         ((extracted_data -> 'location' -> 'lon')::VARCHAR)::NUMERIC  AS lon
     FROM {{source("staging", "raw_weather")}})
-    where ((extracted_data -> 'location' -> 'lat')::VARCHAR)::NUMERIC is not Null
+    where lat is not Null
 SELECT * 
 FROM temperature_daily
