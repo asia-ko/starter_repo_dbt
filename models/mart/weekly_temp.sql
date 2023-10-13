@@ -7,5 +7,4 @@ with weekly_temp
             		from {{ref('prep_temp')}}                  
                     group by (city, week)
 )
-select * from weekly_temp 
-;
+select * from weekly_temp
