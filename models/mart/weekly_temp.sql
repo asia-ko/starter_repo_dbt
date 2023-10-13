@@ -9,7 +9,7 @@ with weekly_temp
                     avg(mintemp_c) as weekly_min,
                     avg(totalprecip_mm) as avg_precip_mm,
                     avg(maxwind_kph) as avg_wind_kph
-            		from {{ref('prep_temp')}}                  
+            		from {{ref('staging_weather')}}                  
                     group by (city, week, year)
                     order by year, week, city
 )
