@@ -6,5 +6,6 @@ with weekly_temp
             		min(avgtemp_c) as weekly_min
             		from {{ref('prep_temp')}}                  
                     group by (city, week)
+                    order by week
 )
 select * from weekly_temp
