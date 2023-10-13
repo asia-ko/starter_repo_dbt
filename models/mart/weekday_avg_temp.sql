@@ -1,7 +1,7 @@
 with weekday_avg as (
     select 
         weekday,
-        year 
+        year,
         avg(avgtemp_c) 
     from {{ref('prep_temp')}}
     group by weekday, year
