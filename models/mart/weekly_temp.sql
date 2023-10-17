@@ -1,5 +1,5 @@
 with weekly_temp 
- 			as (select date, city,
+ 			as (select city,
             		date_part('week', date) as week,
                     date_part('year', date) as year,
             		avg(avgtemp_c) as weekly_avg,
@@ -10,7 +10,7 @@ with weekly_temp
                     avg(totalprecip_mm) as avg_precip_mm,
                     avg(maxwind_kph) as avg_wind_kph
             		from {{ref('staging_weather')}}                  
-                    group by (city, week, year, date)
-                    order by year, week, date, city
+                    group by (city, week, year)
+                    order by year, week, city
 )
 select * from weekly_temp
