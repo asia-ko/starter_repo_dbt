@@ -1,5 +1,5 @@
 with weekly_temp 
- 			as (select city, lat, lon, country
+ 			as (select city, lat, lon, country,
             		date_part('week', date) as week,
                     date_part('year', date) as year,
             		avg(avgtemp_c) as weekly_avg,
