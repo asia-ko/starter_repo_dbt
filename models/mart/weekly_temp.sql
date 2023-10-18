@@ -13,4 +13,17 @@ with weekly_temp
                     group by (country, city, lat, lon, week, year)
                     order by year, week, city, lat,lon, country
 )
-select * from weekly_temp
+select 
+REPLACE (city, '"', '') as city,
+REPLACE (country, '"', '') as country,
+week,
+ year,
+  weekly_avg,
+   weekly_avg_max,
+    weekly_avg_min,
+     weekly_max,
+      weekly_min,
+       lat, lon, 
+       avg_precip_mm,
+       avg_wind_kph
+        from weekly_temp
